@@ -17,6 +17,10 @@ class ShoppingListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigation.title = "Shopping List"
+        navigation.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .trash,
+            target: self,
+            action: #selector(clearShoppingList))
         navigation.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
@@ -54,9 +58,17 @@ class ShoppingListTableViewController: UITableViewController {
     }
 
     func submit(_ answer: String) {
+        print("Whata fack?", answer)
         shoppingList.append(answer)
 
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+
+    // MARK: Clear items
+
+    @objc func clearShoppingList() {
+        shoppingList = []
+        tableView.reloadData()
     }
 }
