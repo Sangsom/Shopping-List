@@ -16,15 +16,14 @@ class ShoppingListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        shoppingList.append("Goroh")
-        shoppingList.append("Milk")
-
         navigation.title = "Shopping List"
         navigation.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(addItem))
     }
+
+    // MARK: Table view methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shoppingList.count
@@ -36,6 +35,8 @@ class ShoppingListTableViewController: UITableViewController {
         return cell
     }
 
+    // MARK: Add item methods
+
     @objc func addItem() {
         let ac = UIAlertController(
             title: "Add item",
@@ -45,11 +46,17 @@ class ShoppingListTableViewController: UITableViewController {
 
         let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
             let answer = ac.textFields![0]
-            self.shoppingList.append(answer.text!)
+            self.submit(answer.text!)
+
         }
-
         ac.addAction(submitAction)
-
         present(ac, animated: true)
+    }
+
+    func submit(_ answer: String) {
+        shoppingList.append(answer)
+
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
     }
 }
