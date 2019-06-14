@@ -37,6 +37,19 @@ class ShoppingListTableViewController: UITableViewController {
     }
 
     @objc func addItem() {
-        print("Adding item")
+        let ac = UIAlertController(
+            title: "Add item",
+            message: nil,
+            preferredStyle: .alert)
+        ac.addTextField()
+
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            let answer = ac.textFields![0]
+            self.shoppingList.append(answer.text!)
+        }
+
+        ac.addAction(submitAction)
+
+        present(ac, animated: true)
     }
 }
