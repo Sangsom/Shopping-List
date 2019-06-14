@@ -17,9 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="W57-r5-mtJ">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Title" id="Gok-jN-lJU"/>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="cID-as-lzU" style="IBUITableViewCellStyleDefault" id="jBq-Oe-OuG">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jBq-Oe-OuG" id="TSz-t8-ENh">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -41,6 +48,9 @@
                             <outlet property="delegate" destination="2Kc-kP-9yJ" id="LGD-xl-70V"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="navigation" destination="Gok-jN-lJU" id="q3o-p3-lLC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSr-9w-lct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

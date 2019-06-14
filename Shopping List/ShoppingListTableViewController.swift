@@ -10,6 +10,7 @@ import UIKit
 
 class ShoppingListTableViewController: UITableViewController {
 
+    @IBOutlet var navigation: UINavigationItem!
     var shoppingList = [String]()
 
     override func viewDidLoad() {
@@ -17,6 +18,12 @@ class ShoppingListTableViewController: UITableViewController {
 
         shoppingList.append("Goroh")
         shoppingList.append("Milk")
+
+        navigation.title = "Shopping List"
+        navigation.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(addItem))
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,4 +36,7 @@ class ShoppingListTableViewController: UITableViewController {
         return cell
     }
 
+    @objc func addItem() {
+        print("Adding item")
+    }
 }
